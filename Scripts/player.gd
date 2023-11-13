@@ -107,7 +107,3 @@ func _on_collision_body_entered(_body):
 		AudioManager.death_sfx.play()
 		death_particles.emitting = true
 		death_tween()
-
-# prevent exit out of level border
-func _on_area_2d_body_entered(_body):
-	max_slides = 0

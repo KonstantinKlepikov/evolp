@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjanwm3sy2x37"]
+[gd_scene load_steps=15 format=3 uid="uid://cjanwm3sy2x37"]
 
 [ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="1_oqkjg"]
 [ext_resource type="PackedScene" uid="uid://bjb3dx2x4bocm" path="res://Scenes/Levels/Level_02.tscn" id="2_0ac5u"]
@@ -63,6 +63,9 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4n1g2"]
+size = Vector2(4, 704.5)
+
 [node name="Level_01" type="Node2D"]
 
 [node name="LevelFinishDoor" parent="." instance=ExtResource("1_oqkjg")]
@@ -116,7 +119,21 @@ layer_0/tile_data = PackedInt32Array(589836, 0, 5, 589835, 0, 5, 589834, 0, 5, 5
 unique_name_in_owner = true
 position = Vector2(174, 383)
 
+[node name="WorldEndLeft" type="StaticBody2D" parent="Level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/WorldEndLeft"]
+position = Vector2(-2, 351.5)
+shape = SubResource("RectangleShape2D_4n1g2")
+
+[node name="WorldEndRight" type="StaticBody2D" parent="Level"]
+position = Vector2(686, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/WorldEndRight"]
+position = Vector2(724, 327.75)
+shape = SubResource("RectangleShape2D_4n1g2")
+
 [node name="TutorialText" type="Node2D" parent="."]
+visible = false
 
 [node name="Movement" type="Label" parent="TutorialText"]
 offset_left = 264.0
