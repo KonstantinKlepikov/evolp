@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c80reo881kvep"]
+
+[ext_resource type="PackedScene" uid="uid://j4jlfapw20xt" path="res://Scenes/Base/LevelBase.tscn" id="1_4ss4x"]
+[ext_resource type="PackedScene" uid="uid://d6gks3jinp56" path="res://Scenes/Base/Task1.tscn" id="2_7eh62"]
+[ext_resource type="PackedScene" uid="uid://cyti38f0lagf2" path="res://Scenes/Prefabs/LevelFinishDoor.tscn" id="3_3ra85"]
+[ext_resource type="PackedScene" uid="uid://dk8ryums21ccq" path="res://Scenes/Levels/level_02.tscn" id="4_0m8dn"]
+
+[node name="level_01" type="Node2D"]
+
+[node name="LevelBase" parent="." instance=ExtResource("1_4ss4x")]
+
+[node name="Task1" parent="." instance=ExtResource("2_7eh62")]
+
+[node name="LevelFinishDoor" parent="." instance=ExtResource("3_3ra85")]
+z_index = 1
+position = Vector2(1304, 400)
+next_scene = ExtResource("4_0m8dn")

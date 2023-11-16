@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjb3dx2x4bocm"]
+[gd_scene load_steps=12 format=3 uid="uid://bjb3dx2x4bocm"]
 
 [ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="2_lpo2y"]
 [ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="3_nht2m"]
@@ -48,17 +48,9 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_gs0qk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rndpx"]
-texture = ExtResource("5_8107p")
-texture_region_size = Vector2i(64, 64)
-0:5/0 = 0
-0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:5/0/physics_layer_0/angular_velocity = 0.0
-
 [sub_resource type="TileSet" id="TileSet_2fcbi"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_rndpx")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtcib"]
 size = Vector2(4, 704.5)

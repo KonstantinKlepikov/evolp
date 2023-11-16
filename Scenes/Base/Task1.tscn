@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://d6gks3jinp56"]
+
+[ext_resource type="TileSet" uid="uid://t3o76vnbrau7" path="res://Assets/Tiles/game_tile_set.tres" id="1_61fkn"]
+[ext_resource type="PackedScene" uid="uid://bfmh3fm2de78o" path="res://Scenes/Prefabs/Coin.tscn" id="2_e1gd7"]
+
+[node name="Task1" type="Node2D"]
+metadata/_edit_vertical_guides_ = [1408.0, 256.0, 1152.0]
+metadata/_edit_horizontal_guides_ = [704.0, 448.0]
+
+[node name="Ground" type="TileMap" parent="." groups=["Ground"]]
+tile_set = ExtResource("1_61fkn")
+format = 2
+layer_0/tile_data = PackedInt32Array(458752, 3, 0, 458753, 3, 0, 458754, 3, 0, 458755, 3, 0, 458756, 3, 0, 458757, 3, 0, 458773, 3, 0, 458772, 3, 0, 458771, 3, 0, 458770, 3, 0, 458769, 3, 0, 458768, 3, 0, 458761, 3, 0, 458762, 3, 0, 458763, 3, 0, 458764, 3, 0, 458758, 3, 0, 458767, 3, 0, 524298, 196611, 0, 589834, 196611, 0, 524299, 196611, 0, 589835, 196611, 0, 655370, 196611, 0, 655371, 196611, 0, 524293, 196611, 0, 589829, 196611, 0, 655365, 196611, 0, 655366, 196611, 0, 655367, 196611, 0, 655368, 196611, 0, 655369, 196611, 0, 655372, 196611, 0, 655373, 196611, 0, 655374, 196611, 0, 655375, 196611, 0, 655376, 196611, 0, 524304, 196611, 0, 589840, 196611, 0, 524309, 196611, 0, 589845, 196611, 0, 655381, 196611, 0, 655380, 196611, 0, 655379, 196611, 0, 655378, 196611, 0, 655377, 196611, 0, 524305, 196611, 0, 589841, 196611, 0, 589842, 196611, 0, 524306, 196611, 0, 589843, 196611, 0, 524307, 196611, 0, 524308, 196611, 0, 589844, 196611, 0, 655364, 196611, 0, 655363, 196611, 0, 655362, 196611, 0, 655361, 196611, 0, 655360, 196611, 0, 589824, 196611, 0, 524288, 196611, 0, 524289, 196611, 0, 589825, 196611, 0, 589826, 196611, 0, 524290, 196611, 0, 524291, 196611, 0, 589827, 196611, 0, 589828, 196611, 0, 524292, 196611, 0)
+
+[node name="Traps" type="TileMap" parent="." groups=["Traps"]]
+tile_set = ExtResource("1_61fkn")
+format = 2
+layer_0/tile_data = PackedInt32Array(589830, 3, 5, 589831, 3, 5, 589832, 3, 5, 589833, 3, 5, 589836, 3, 5, 589837, 3, 5, 589838, 3, 5, 589839, 3, 5)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("2_e1gd7")]
+position = Vector2(512, 384)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("2_e1gd7")]
+position = Vector2(704, 352)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("2_e1gd7")]
+position = Vector2(896, 384)

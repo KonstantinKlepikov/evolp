@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://j4jlfapw20xt"]
+
+[ext_resource type="PackedScene" uid="uid://w7m6tehvvy3g" path="res://Scenes/Prefabs/player.tscn" id="3_168pa"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="5_2vyvb"]
+[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="6_37ao8"]
+[ext_resource type="Texture2D" uid="uid://clreg520jah1j" path="res://Assets/platformPack_item008.png" id="7_ggdy5"]
+[ext_resource type="FontFile" uid="uid://qgc4vi5osk7v" path="res://Assets/Fonts/Star Choco.ttf" id="8_0e046"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njlhy"]
+size = Vector2(4, 704.5)
+
+[node name="LevelBase" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("3_168pa")]
+z_index = 1
+position = Vector2(150, 318)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(16, 36)
+limit_left = 0
+limit_bottom = 705
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="SpawnPoint" type="Marker2D" parent="Level"]
+unique_name_in_owner = true
+position = Vector2(174, 383)
+
+[node name="WorldEndLeft" type="StaticBody2D" parent="Level"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/WorldEndLeft"]
+position = Vector2(-2, 351.5)
+shape = SubResource("RectangleShape2D_njlhy")
+
+[node name="WorldEndRight" type="StaticBody2D" parent="Level"]
+position = Vector2(686, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/WorldEndRight"]
+position = Vector2(724, 327.75)
+shape = SubResource("RectangleShape2D_njlhy")
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("5_2vyvb")
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+
+[node name="GameUI" type="Control" parent="UserInterface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_37ao8")
+
+[node name="Score" type="Control" parent="UserInterface/GameUI"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreTexture" type="TextureRect" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 116.0
+offset_bottom = 116.0
+texture = ExtResource("7_ggdy5")
+stretch_mode = 4
+
+[node name="ScoreLabel" type="Label" parent="UserInterface/GameUI/Score"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 104.0
+offset_top = 42.0
+offset_right = 148.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.910156, 0.730469, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("8_0e046")
+theme_override_font_sizes/font_size = 32
+text = "x 3"
